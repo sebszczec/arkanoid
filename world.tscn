@@ -1,14 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://giupnawqx1ye"]
+[gd_scene load_steps=5 format=3 uid="uid://giupnawqx1ye"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_401ss"]
 [ext_resource type="Texture2D" uid="uid://c7sfohqe7xp8m" path="res://resources/player.png" id="1_l745i"]
 [ext_resource type="PackedScene" uid="uid://de7l6ii6r5lkg" path="res://ball.tscn" id="3_r2ygv"]
-[ext_resource type="Texture2D" uid="uid://cqpsrwbu1b3we" path="res://resources/ball.png" id="4_nelah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_drytv"]
 size = Vector2(62, 30)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_716ak"]
 
 [node name="World" type="Node2D"]
 
@@ -24,17 +21,19 @@ shape = SubResource("RectangleShape2D_drytv")
 
 [node name="Boundries" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundries"]
-position = Vector2(5, 1)
-polygon = PackedVector2Array(-5, -1, 3, -1, 3, 591, 787, 591, 787, -1, 795, -1, 795, 599, -5, 599)
+[node name="Left" type="CollisionPolygon2D" parent="Boundries"]
+polygon = PackedVector2Array(0, 0, 0, 600, 0, 600, 0, 600, 1, 600, 1, 0)
+
+[node name="Right" type="CollisionPolygon2D" parent="Boundries"]
+position = Vector2(800, 0)
+polygon = PackedVector2Array(0, 0, 0, 600, 0, 600, 0, 600, 1, 600, 1, 0)
+
+[node name="Top" type="CollisionPolygon2D" parent="Boundries"]
+polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
+
+[node name="Down" type="CollisionPolygon2D" parent="Boundries"]
+position = Vector2(0, 600)
+polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
 
 [node name="Ball" parent="." instance=ExtResource("3_r2ygv")]
-
-[node name="Sprite2D2" type="Sprite2D" parent="Ball"]
-position = Vector2(180, 320)
-texture = ExtResource("4_nelah")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ball"]
-position = Vector2(180, 320)
-shape = SubResource("CircleShape2D_716ak")
-debug_color = Color(0.619608, 0.533333, 0.0470588, 0.419608)
+position = Vector2(100, 100)
