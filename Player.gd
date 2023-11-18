@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const ACCELERATION = 20
 const MAX_SPEED = 200
-const FRICTION = 60
+const FRICTION = 100
 
 #var player_velocity = Vector2.ZERO
 
@@ -17,4 +17,9 @@ func _physics_process(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 	
-	move_and_collide(velocity)
+	var collision = move_and_collide(velocity)
+	
+	if collision:
+		if collision.get_collider().name == "Boundries":
+			velocity = Vector2.ZERO
+
