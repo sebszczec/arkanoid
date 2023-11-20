@@ -1,23 +1,27 @@
 extends CharacterBody2D
 
 const ACCELERATION = 20
-const MAX_SPEED = 200
+const MAX_SPEED = 300
 const FRICTION = 100
 
-#var player_velocity = Vector2.ZERO
+const RIGHT_VELOCITY = Vector2(1, 0) * MAX_SPEED
+const LEFT_VELOCITY = RIGHT_VELOCITY * -1
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	# input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	
 	if input_vector != Vector2.ZERO:
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		if input_vector.x > 0:
+			velocity = RIGHT_VELOCITY
+		else:
+			velocity = LEFT_VELOCITY
+				
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		velocity = Vector2.ZERO
 	
-	var collision = move_and_collide(velocity)
+	var collision = move_and_collide(velocity * delta)
 	
 	if collision:
 		if collision.get_collider().name == "Boundries":

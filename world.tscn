@@ -1,25 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://giupnawqx1ye"]
+[gd_scene load_steps=4 format=3 uid="uid://giupnawqx1ye"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_401ss"]
-[ext_resource type="Texture2D" uid="uid://c7sfohqe7xp8m" path="res://resources/player.png" id="1_l745i"]
+[ext_resource type="PackedScene" uid="uid://d0f2ex7d5f26v" path="res://player.tscn" id="1_dtkfp"]
+[ext_resource type="PackedScene" uid="uid://bl1ybahhp513f" path="res://block.tscn" id="3_nynpj"]
 [ext_resource type="PackedScene" uid="uid://de7l6ii6r5lkg" path="res://ball.tscn" id="3_r2ygv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_drytv"]
-size = Vector2(62, 30)
 
 [node name="World" type="Node2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(400, 570)
-script = ExtResource("1_401ss")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_l745i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_drytv")
+[node name="Player" parent="." instance=ExtResource("1_dtkfp")]
 
 [node name="Boundries" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Left" type="CollisionPolygon2D" parent="Boundries"]
 polygon = PackedVector2Array(0, 0, 0, 600, 0, 600, 0, 600, 1, 600, 1, 0)
@@ -36,4 +27,34 @@ position = Vector2(0, 600)
 polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
 
 [node name="Ball" parent="." instance=ExtResource("3_r2ygv")]
-position = Vector2(100, 100)
+position = Vector2(400, 395)
+
+[node name="Block1" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(177, 254)
+
+[node name="Block2" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(229, 254)
+
+[node name="Block3" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(281, 254)
+
+[node name="Block4" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(333, 254)
+
+[node name="Block5" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(385, 254)
+
+[node name="Block6" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(437, 254)
+
+[node name="Block7" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(489, 254)
+
+[node name="Block8" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(541, 254)
+
+[node name="Block9" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(593, 254)
+
+[node name="Block10" parent="." instance=ExtResource("3_nynpj")]
+position = Vector2(645, 254)

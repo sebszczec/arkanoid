@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl1ybahhp513f"]
+
+[ext_resource type="Script" path="res://block.gd" id="1_fo3ry"]
+[ext_resource type="Texture2D" uid="uid://f8d75wla2pyg" path="res://resources/blocks/blue/block_full.png" id="2_eibah"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cc40l"]
+size = Vector2(52, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wxot"]
+size = Vector2(53, 23)
+
+[node name="BlueDamagedBlock" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_fo3ry")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_eibah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_cc40l")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_4wxot")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
