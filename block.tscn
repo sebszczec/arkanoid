@@ -1,13 +1,57 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl1ybahhp513f"]
+[gd_scene load_steps=12 format=3 uid="uid://bl1ybahhp513f"]
 
 [ext_resource type="Script" path="res://block.gd" id="1_fo3ry"]
 [ext_resource type="Texture2D" uid="uid://f8d75wla2pyg" path="res://resources/blocks/blue/block_full.png" id="2_eibah"]
+[ext_resource type="Texture2D" uid="uid://c62v5ddwtwpdx" path="res://resources/blocks/blue/damaged/destroy_animation.png" id="3_yxebn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc40l"]
 size = Vector2(52, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4wxot"]
 size = Vector2(53, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tswme"]
+atlas = ExtResource("3_yxebn")
+region = Rect2(0, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koc5x"]
+atlas = ExtResource("3_yxebn")
+region = Rect2(0, 32, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2duy7"]
+atlas = ExtResource("3_yxebn")
+region = Rect2(0, 64, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhi41"]
+atlas = ExtResource("3_yxebn")
+region = Rect2(0, 96, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83jxw"]
+atlas = ExtResource("3_yxebn")
+region = Rect2(0, 128, 62, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fag4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tswme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koc5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2duy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhi41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83jxw")
+}],
+"loop": true,
+"name": &"Destroy",
+"speed": 5.0
+}]
 
 [node name="BlueDamagedBlock" type="CharacterBody2D"]
 collision_layer = 8
@@ -28,4 +72,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("RectangleShape2D_4wxot")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fag4p")
+animation = &"Destroy"
+frame = 1
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
