@@ -53,7 +53,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BlueDamagedBlock" type="CharacterBody2D"]
+[node name="Block" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_fo3ry")
@@ -73,6 +73,7 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_4wxot")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_fag4p")
 animation = &"Destroy"
 frame = 1

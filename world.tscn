@@ -43,9 +43,11 @@ position = Vector2(333, 254)
 
 [node name="Block5" parent="." instance=ExtResource("3_nynpj")]
 position = Vector2(385, 254)
+MAX_HITS = 1
 
 [node name="Block6" parent="." instance=ExtResource("3_nynpj")]
 position = Vector2(437, 254)
+MAX_HITS = 1
 
 [node name="Block7" parent="." instance=ExtResource("3_nynpj")]
 position = Vector2(489, 254)
