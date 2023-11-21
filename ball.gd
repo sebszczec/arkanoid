@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-var ball_velocity = Vector2(-100, 200)
+var generator = RandomNumberGenerator.new()
+var random_x_direction = generator.randf_range(-100, 100)
+var ball_velocity = Vector2(random_x_direction, 200)
 
 func _physics_process(delta):
 	velocity = ball_velocity

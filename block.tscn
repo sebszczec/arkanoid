@@ -240,6 +240,7 @@ shape = SubResource("RectangleShape2D_4wxot")
 visible = false
 sprite_frames = SubResource("SpriteFrames_fag4p")
 animation = &"Destroy_green"
+speed_scale = 2.0
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
