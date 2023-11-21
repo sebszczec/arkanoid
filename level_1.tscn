@@ -38,44 +38,94 @@ polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
 position = Vector2(0, 600)
 polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
 
-[node name="Ball" parent="." instance=ExtResource("3_upv0c")]
+[node name="Line1" type="Node2D" parent="."]
 position = Vector2(400, 395)
 
-[node name="Block1" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(177, 254)
+[node name="Block1" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(-223, -141)
 
-[node name="Block2" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(229, 254)
+[node name="Block2" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(-171, -141)
 
-[node name="Block3" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(281, 254)
-COLOR = "red"
+[node name="Block3" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(-119, -141)
 
-[node name="Block4" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(333, 254)
+[node name="Block4" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(-67, -141)
 
-[node name="Block5" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(385, 254)
+[node name="Block5" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(-15, -141)
+
+[node name="Block6" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(37, -141)
+
+[node name="Block7" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(89, -141)
+
+[node name="Block8" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(141, -141)
+
+[node name="Block9" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(193, -141)
+
+[node name="Block10" parent="Line1" instance=ExtResource("4_s7kao")]
+position = Vector2(245, -141)
+
+[node name="Line2" type="Node2D" parent="."]
+position = Vector2(400, 372)
+
+[node name="Block1" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(-223, -141)
 MAX_HITS = 1
-
-[node name="Block6" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(437, 254)
-MAX_HITS = 1
-
-[node name="Block7" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(489, 254)
-
-[node name="Block8" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(541, 254)
-COLOR = "orange"
-
-[node name="Block9" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(593, 254)
 COLOR = "yellow"
 
-[node name="Block10" parent="." instance=ExtResource("4_s7kao")]
-position = Vector2(645, 254)
-COLOR = "green"
+[node name="Block2" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(-171, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block3" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(-119, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block4" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(-67, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block5" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(-15, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block6" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(37, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block7" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(89, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block8" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(141, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block9" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(193, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Block10" parent="Line2" instance=ExtResource("4_s7kao")]
+position = Vector2(245, -141)
+MAX_HITS = 1
+COLOR = "yellow"
+
+[node name="Ball" parent="." instance=ExtResource("3_upv0c")]
+position = Vector2(400, 395)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_yltx1")

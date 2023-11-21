@@ -1,18 +1,21 @@
 extends CharacterBody2D
 
-var generator = RandomNumberGenerator.new()
-var random_x_direction = generator.randf_range(-100, 100)
-var ball_velocity = Vector2(random_x_direction, 200)
+
 @onready var audioPlayer = $AudioStreamPlayer
+var direction = Vector2(0.0, 1)
+@export var SPEED = 200
+
+func _ready():
+	var generator = RandomNumberGenerator.new()
+	var random_x_direction = generator.randf_range(-1, 11)
+	direction.x = random_x_direction
 
 func _physics_process(delta):
-	velocity = ball_velocity
-		
-	var collision = move_and_collide(velocity * delta)
+	direction = direction.normalized()
+	velocity = direction * SPEED * delta
 	
-	if collision:
+	var collision = move_and_collide(velocity)
+	
+	if collision != null:
+		direction = direction.bounce(collision.get_normal())
 		audioPlayer.play()
-		ball_velocity = velocity.bounce(collision.get_normal()) + (0.25 * collision.get_collider_velocity())
-		
-
-
