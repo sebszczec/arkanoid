@@ -1,7 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://de7l6ii6r5lkg"]
+[gd_scene load_steps=11 format=3 uid="uid://dg5fmiqaxc46h"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_eul2n"]
 [ext_resource type="Texture2D" uid="uid://cqpsrwbu1b3we" path="res://resources/ball.png" id="2_pnk6g"]
+[ext_resource type="AudioStream" uid="uid://bhv8w6h72wrpx" path="res://resources/ball_bounce.mp3" id="3_fh6t8"]
+
+[sub_resource type="Gradient" id="Gradient_opoei"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5iqd7"]
+gradient = SubResource("Gradient_opoei")
+
+[sub_resource type="Curve" id="Curve_nb28a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.992278, 0.189474), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pi8ta"]
+curve = SubResource("Curve_nb28a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_av50e"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 100, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_pi8ta")
+color_ramp = SubResource("GradientTexture1D_5iqd7")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m17m4"]
 radius = 8.0
@@ -13,6 +36,10 @@ radius = 9.0
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_eul2n")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_av50e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_pnk6g")
@@ -27,4 +54,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_f2fqd")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fh6t8")
+volume_db = 10.0

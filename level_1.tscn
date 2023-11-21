@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://giupnawqx1ye"]
+
+[ext_resource type="Script" path="res://level_1.gd" id="1_7owms"]
+[ext_resource type="Texture2D" uid="uid://c7yk25u8c6yft" path="res://resources/cyber_punk_city.png" id="1_l1ilp"]
+[ext_resource type="PackedScene" uid="uid://d0f2ex7d5f26v" path="res://player.tscn" id="2_i7gfm"]
+[ext_resource type="PackedScene" uid="uid://dg5fmiqaxc46h" path="res://ball.tscn" id="3_upv0c"]
+[ext_resource type="PackedScene" uid="uid://bl1ybahhp513f" path="res://block.tscn" id="4_s7kao"]
+[ext_resource type="AudioStream" uid="uid://bfek2glwwuncb" path="res://resources/level_1_music.mp3" id="6_yltx1"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_7owms")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(384, 271)
+texture = ExtResource("1_l1ilp")
+
+[node name="Player" parent="." instance=ExtResource("2_i7gfm")]
+
+[node name="Boundries" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Left" type="CollisionPolygon2D" parent="Boundries"]
+polygon = PackedVector2Array(0, 0, 0, 600, 0, 600, 0, 600, 1, 600, 1, 0)
+
+[node name="Right" type="CollisionPolygon2D" parent="Boundries"]
+position = Vector2(800, 0)
+polygon = PackedVector2Array(0, 0, 0, 600, 0, 600, 0, 600, 1, 600, 1, 0)
+
+[node name="Top" type="CollisionPolygon2D" parent="Boundries"]
+polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
+
+[node name="Down" type="CollisionPolygon2D" parent="Boundries"]
+position = Vector2(0, 600)
+polygon = PackedVector2Array(0, 0, 801, 0, 801, 1, 0, 1)
+
+[node name="Ball" parent="." instance=ExtResource("3_upv0c")]
+position = Vector2(400, 395)
+
+[node name="Block1" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(177, 254)
+
+[node name="Block2" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(229, 254)
+
+[node name="Block3" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(281, 254)
+COLOR = "red"
+
+[node name="Block4" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(333, 254)
+
+[node name="Block5" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(385, 254)
+MAX_HITS = 1
+
+[node name="Block6" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(437, 254)
+MAX_HITS = 1
+
+[node name="Block7" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(489, 254)
+
+[node name="Block8" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(541, 254)
+COLOR = "orange"
+
+[node name="Block9" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(593, 254)
+COLOR = "yellow"
+
+[node name="Block10" parent="." instance=ExtResource("4_s7kao")]
+position = Vector2(645, 254)
+COLOR = "green"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yltx1")
