@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var MAX_HITS = 4
-@export var COLOR = "green"
+@export var COLOR = "blue"
 var hits = 0
 var textures = {}
 @onready var sprite2D = $Sprite2D
@@ -14,6 +14,7 @@ func _set_color(color):
 	temp.append(load("res://resources/blocks/" + color + "/damaged/block_d3.png"))
 	textures[color] = temp
 	sprite2D.texture = load("res://resources/blocks/" + color + "/block_full.png")
+
 	
 	# more colors can be loaded if dynamic change of color will be required
 
@@ -29,7 +30,7 @@ func _on_hurt_box_area_entered(area):
 	if hits == MAX_HITS:	
 		sprite2D.visible = false
 		animatedSprite2D.visible = true
-		animatedSprite2D.play("Destroy")
+		animatedSprite2D.play("Destroy_" + COLOR)
 		return
 	
 	assert(hits < 4)

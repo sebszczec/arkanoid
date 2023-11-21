@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl1ybahhp513f"]
+[gd_scene load_steps=36 format=3 uid="uid://bl1ybahhp513f"]
 
 [ext_resource type="Script" path="res://block.gd" id="1_fo3ry"]
 [ext_resource type="Texture2D" uid="uid://f8d75wla2pyg" path="res://resources/blocks/blue/block_full.png" id="2_eibah"]
 [ext_resource type="Texture2D" uid="uid://c62v5ddwtwpdx" path="res://resources/blocks/blue/damaged/destroy_animation.png" id="3_yxebn"]
+[ext_resource type="Texture2D" uid="uid://b7vpkmhsb0u77" path="res://resources/blocks/green/damaged/destroy_animation.png" id="4_fgcpn"]
+[ext_resource type="Texture2D" uid="uid://cwtecir1apu7w" path="res://resources/blocks/orange/damaged/destroy_animation.png" id="5_s5tst"]
+[ext_resource type="Texture2D" uid="uid://bb7cj4jxecvqh" path="res://resources/blocks/red/damaged/destroy_animation.png" id="6_qdmmd"]
+[ext_resource type="Texture2D" uid="uid://craqj0rh7fgif" path="res://resources/blocks/yellow/damaged/destroy_animation.png" id="7_mxqgb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc40l"]
 size = Vector2(52, 22)
@@ -30,6 +34,86 @@ region = Rect2(0, 96, 62, 32)
 atlas = ExtResource("3_yxebn")
 region = Rect2(0, 128, 62, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b475r"]
+atlas = ExtResource("4_fgcpn")
+region = Rect2(0, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhfjs"]
+atlas = ExtResource("4_fgcpn")
+region = Rect2(0, 32, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wcbt"]
+atlas = ExtResource("4_fgcpn")
+region = Rect2(0, 64, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebhcw"]
+atlas = ExtResource("4_fgcpn")
+region = Rect2(0, 96, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0tii"]
+atlas = ExtResource("4_fgcpn")
+region = Rect2(0, 128, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itphd"]
+atlas = ExtResource("5_s5tst")
+region = Rect2(0, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_namfa"]
+atlas = ExtResource("5_s5tst")
+region = Rect2(0, 32, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lga2k"]
+atlas = ExtResource("5_s5tst")
+region = Rect2(0, 64, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hp1x"]
+atlas = ExtResource("5_s5tst")
+region = Rect2(0, 96, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp086"]
+atlas = ExtResource("5_s5tst")
+region = Rect2(0, 128, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7wub"]
+atlas = ExtResource("6_qdmmd")
+region = Rect2(0, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66v2j"]
+atlas = ExtResource("6_qdmmd")
+region = Rect2(0, 32, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r680y"]
+atlas = ExtResource("6_qdmmd")
+region = Rect2(0, 64, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgiq2"]
+atlas = ExtResource("6_qdmmd")
+region = Rect2(0, 96, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eem8h"]
+atlas = ExtResource("6_qdmmd")
+region = Rect2(0, 128, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81jh1"]
+atlas = ExtResource("7_mxqgb")
+region = Rect2(0, 0, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eabvx"]
+atlas = ExtResource("7_mxqgb")
+region = Rect2(0, 32, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfg2w"]
+atlas = ExtResource("7_mxqgb")
+region = Rect2(0, 64, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hodal"]
+atlas = ExtResource("7_mxqgb")
+region = Rect2(0, 96, 62, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrjiy"]
+atlas = ExtResource("7_mxqgb")
+region = Rect2(0, 128, 62, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_fag4p"]
 animations = [{
 "frames": [{
@@ -49,7 +133,87 @@ animations = [{
 "texture": SubResource("AtlasTexture_83jxw")
 }],
 "loop": true,
-"name": &"Destroy",
+"name": &"Destroy_blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b475r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhfjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wcbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebhcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0tii")
+}],
+"loop": true,
+"name": &"Destroy_green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itphd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_namfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lga2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hp1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp086")
+}],
+"loop": true,
+"name": &"Destroy_orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7wub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66v2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r680y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgiq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eem8h")
+}],
+"loop": true,
+"name": &"Destroy_red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81jh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eabvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfg2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hodal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrjiy")
+}],
+"loop": true,
+"name": &"Destroy_yellow",
 "speed": 5.0
 }]
 
@@ -75,8 +239,7 @@ shape = SubResource("RectangleShape2D_4wxot")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_fag4p")
-animation = &"Destroy"
-frame = 1
+animation = &"Destroy_green"
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
