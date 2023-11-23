@@ -6,6 +6,8 @@ var hits = 0
 var textures = {}
 @onready var sprite2D = $Sprite2D
 @onready var animatedSprite2D = $AnimatedSprite2D
+@onready var crackSoundPlayer = $CrackSoundPlayer
+@onready var destroySoundPlayer = $DestroySoundPlayer
 
 func _set_color(color):
 	var temp = []
@@ -30,13 +32,17 @@ func _on_hurt_box_area_entered(area):
 	if hits == MAX_HITS:	
 		sprite2D.visible = false
 		animatedSprite2D.visible = true
+		destroySoundPlayer.play()
 		animatedSprite2D.play("Destroy_" + COLOR)
 		return
 	
+	# safety guard: laser and ball can hit the same block at the same time
 	if hits >= MAX_HITS:
 		return
 	
 	sprite2D.texture = textures[COLOR][hits - 1]
+	crackSoundPlayer.play()
+	
 
 func _on_animated_sprite_2d_animation_looped():
 	animatedSprite2D.stop()

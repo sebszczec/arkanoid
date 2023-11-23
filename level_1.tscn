@@ -129,7 +129,7 @@ COLOR = "yellow"
 [node name="Ball" parent="." instance=ExtResource("3_upv0c")]
 position = Vector2(400, 395)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_yltx1")
 
 [node name="Labels" type="Node2D" parent="."]

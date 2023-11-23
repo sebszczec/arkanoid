@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bplpfrh7c58e4"]
+[gd_scene load_steps=6 format=3 uid="uid://bplpfrh7c58e4"]
 
 [ext_resource type="Texture2D" uid="uid://drtak3fwac7ca" path="res://resources/laser_beam.png" id="1_d5juq"]
 [ext_resource type="Script" path="res://laser.gd" id="1_plrkv"]
+[ext_resource type="AudioStream" uid="uid://6tb7b6vekppw" path="res://resources/laser.mp3" id="3_5jo7w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5532h"]
 
@@ -28,6 +29,9 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_ievcm")
+
+[node name="LaserShootPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5jo7w")
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="area_shape_entered" from="HitBox" to="." method="_on_hit_box_area_shape_entered"]

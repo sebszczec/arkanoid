@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var audioPlayer = $AudioStreamPlayer
+@onready var audioPlayer = $BounceSoundPlayer
 var direction = Vector2(0, 1)
 @export var SPEED = 200
 

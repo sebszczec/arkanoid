@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bl1ybahhp513f"]
+[gd_scene load_steps=38 format=3 uid="uid://bl1ybahhp513f"]
 
 [ext_resource type="Script" path="res://block.gd" id="1_fo3ry"]
 [ext_resource type="Texture2D" uid="uid://f8d75wla2pyg" path="res://resources/blocks/blue/block_full.png" id="2_eibah"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cwtecir1apu7w" path="res://resources/blocks/orange/damaged/destroy_animation.png" id="5_s5tst"]
 [ext_resource type="Texture2D" uid="uid://bb7cj4jxecvqh" path="res://resources/blocks/red/damaged/destroy_animation.png" id="6_qdmmd"]
 [ext_resource type="Texture2D" uid="uid://craqj0rh7fgif" path="res://resources/blocks/yellow/damaged/destroy_animation.png" id="7_mxqgb"]
+[ext_resource type="AudioStream" uid="uid://dxpheuxwhcmfr" path="res://resources/crack.mp3" id="8_xikby"]
+[ext_resource type="AudioStream" uid="uid://dmxud4yg42x6t" path="res://resources/block_destroyed.mp3" id="9_sjlgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc40l"]
 size = Vector2(52, 22)
@@ -241,6 +243,12 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_fag4p")
 animation = &"Destroy_green"
 speed_scale = 2.0
+
+[node name="CrackSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xikby")
+
+[node name="DestroySoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sjlgu")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

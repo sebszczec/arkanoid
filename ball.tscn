@@ -54,6 +54,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_f2fqd")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BounceSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_fh6t8")
-volume_db = 10.0
+volume_db = 24.0

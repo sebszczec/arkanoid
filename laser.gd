@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
+@onready var shoot_player = $LaserShootPlayer
 var direction = Vector2(0, -1)
 @export var SPEED = 200
 
 signal laser_destroyed
+
+func _ready():
+	shoot_player.play()
 
 func _physics_process(delta):
 	direction = direction.normalized()

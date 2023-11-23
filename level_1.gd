@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var audio = $AudioStreamPlayer
+@onready var audio = $BackgroundMusicPlayer
 @onready var ball = $Ball
 @onready var logic_handler = $LogicHandler
 
