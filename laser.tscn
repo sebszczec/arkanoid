@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bplpfrh7c58e4"]
+[gd_scene load_steps=7 format=3 uid="uid://bplpfrh7c58e4"]
 
 [ext_resource type="Texture2D" uid="uid://drtak3fwac7ca" path="res://resources/laser_beam.png" id="1_d5juq"]
 [ext_resource type="Script" path="res://laser.gd" id="1_plrkv"]
 [ext_resource type="AudioStream" uid="uid://6tb7b6vekppw" path="res://resources/laser.mp3" id="3_5jo7w"]
+[ext_resource type="Texture2D" uid="uid://bj4pdhjkdbwpc" path="res://resources/laser_light.png" id="4_gnb6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5532h"]
 
@@ -13,6 +14,12 @@ radius = 2.5
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_plrkv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -1)
+rotation = -1.5708
+scale = Vector2(0.340284, 0.521131)
+texture = ExtResource("4_gnb6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5532h")

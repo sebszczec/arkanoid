@@ -12,12 +12,11 @@
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_7owms")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(384, 271)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -220.0
+offset_top = -157.0
+offset_right = 1060.0
+offset_bottom = 803.0
 texture = ExtResource("1_l1ilp")
 
 [node name="Player" parent="." instance=ExtResource("2_i7gfm")]
