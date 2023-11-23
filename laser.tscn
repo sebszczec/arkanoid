@@ -29,4 +29,5 @@ collision_mask = 32
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_ievcm")
 
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="area_shape_entered" from="HitBox" to="." method="_on_hit_box_area_shape_entered"]

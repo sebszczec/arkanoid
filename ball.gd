@@ -7,7 +7,7 @@ var direction = Vector2(0, 1)
 
 func _ready():
 	var generator = RandomNumberGenerator.new()
-	var random_x_direction = generator.randf_range(-1, 11)
+	var random_x_direction = generator.randf_range(-1, 1)
 	direction.x = random_x_direction
 
 func _physics_process(delta):
