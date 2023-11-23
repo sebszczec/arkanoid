@@ -1,7 +1,12 @@
 extends Node2D
 
 @onready var audio = $AudioStreamPlayer
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	audio.play()
 
+func _physics_process(delta):
+	pass
+	
+	

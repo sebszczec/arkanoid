@@ -33,7 +33,9 @@ func _on_hurt_box_area_entered(area):
 		animatedSprite2D.play("Destroy_" + COLOR)
 		return
 	
-	assert(hits < 4)
+	if hits >= MAX_HITS:
+		return
+	
 	sprite2D.texture = textures[COLOR][hits - 1]
 
 func _on_animated_sprite_2d_animation_looped():

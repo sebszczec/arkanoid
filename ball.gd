@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @onready var audioPlayer = $AudioStreamPlayer
-var direction = Vector2(0.0, 1)
+var direction = Vector2(0, 1)
 @export var SPEED = 200
 
 func _ready():

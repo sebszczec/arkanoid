@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://giupnawqx1ye"]
+[gd_scene load_steps=8 format=3 uid="uid://giupnawqx1ye"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_7owms"]
 [ext_resource type="Texture2D" uid="uid://c7yk25u8c6yft" path="res://resources/cyber_punk_city.png" id="1_l1ilp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dg5fmiqaxc46h" path="res://ball.tscn" id="3_upv0c"]
 [ext_resource type="PackedScene" uid="uid://bl1ybahhp513f" path="res://block.tscn" id="4_s7kao"]
 [ext_resource type="AudioStream" uid="uid://bfek2glwwuncb" path="res://resources/level_1_music.mp3" id="6_yltx1"]
+[ext_resource type="Script" path="res://input_handler.gd" id="7_3mnfj"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_7owms")
@@ -129,3 +130,37 @@ position = Vector2(400, 395)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_yltx1")
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="NumberOfLaserBeamsLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 2.0
+offset_right = 194.0
+offset_bottom = 27.0
+text = "Number of laser beams:"
+
+[node name="NumberOfLaserBeamsValue" type="RichTextLabel" parent="Labels"]
+offset_left = 196.0
+offset_top = 1.0
+offset_right = 218.0
+offset_bottom = 28.0
+text = "0
+"
+
+[node name="BallSpeedLabel" type="RichTextLabel" parent="Labels"]
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 98.0
+offset_bottom = 48.0
+text = "Ball speed: "
+
+[node name="BallSpeedValue" type="RichTextLabel" parent="Labels"]
+offset_left = 93.0
+offset_top = 21.0
+offset_right = 115.0
+offset_bottom = 48.0
+text = "0
+"
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("7_3mnfj")
