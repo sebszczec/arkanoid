@@ -48,6 +48,7 @@ ui_right={
 2d_physics/layer_5="Ball_hit_box"
 2d_physics/layer_6="Block_hurt_box"
 2d_physics/layer_7="Laser"
+2d_physics/layer_8="Perk"
 
 [rendering]
 

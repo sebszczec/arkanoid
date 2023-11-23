@@ -1,14 +1,14 @@
 [gd_scene load_steps=38 format=3 uid="uid://bl1ybahhp513f"]
 
 [ext_resource type="Script" path="res://block.gd" id="1_fo3ry"]
-[ext_resource type="Texture2D" uid="uid://f8d75wla2pyg" path="res://resources/blocks/blue/block_full.png" id="2_eibah"]
-[ext_resource type="Texture2D" uid="uid://c62v5ddwtwpdx" path="res://resources/blocks/blue/damaged/destroy_animation.png" id="3_yxebn"]
-[ext_resource type="Texture2D" uid="uid://b7vpkmhsb0u77" path="res://resources/blocks/green/damaged/destroy_animation.png" id="4_fgcpn"]
-[ext_resource type="Texture2D" uid="uid://cwtecir1apu7w" path="res://resources/blocks/orange/damaged/destroy_animation.png" id="5_s5tst"]
-[ext_resource type="Texture2D" uid="uid://bb7cj4jxecvqh" path="res://resources/blocks/red/damaged/destroy_animation.png" id="6_qdmmd"]
-[ext_resource type="Texture2D" uid="uid://craqj0rh7fgif" path="res://resources/blocks/yellow/damaged/destroy_animation.png" id="7_mxqgb"]
-[ext_resource type="AudioStream" uid="uid://dxpheuxwhcmfr" path="res://resources/crack.mp3" id="8_xikby"]
-[ext_resource type="AudioStream" uid="uid://dmxud4yg42x6t" path="res://resources/block_destroyed.mp3" id="9_sjlgu"]
+[ext_resource type="Texture2D" uid="uid://crusr22x323tu" path="res://resources/blocks/blue/block_full.png" id="2_eibah"]
+[ext_resource type="Texture2D" uid="uid://b8nmcocpcqphr" path="res://resources/blocks/blue/damaged/destroy_animation.png" id="3_yxebn"]
+[ext_resource type="Texture2D" uid="uid://b42ghkm7bxp2e" path="res://resources/blocks/green/damaged/destroy_animation.png" id="4_fgcpn"]
+[ext_resource type="Texture2D" uid="uid://d2jwkxeyo6noe" path="res://resources/blocks/orange/damaged/destroy_animation.png" id="5_s5tst"]
+[ext_resource type="Texture2D" uid="uid://cdq4cgi6j0p62" path="res://resources/blocks/red/damaged/destroy_animation.png" id="6_qdmmd"]
+[ext_resource type="Texture2D" uid="uid://bpqtarvcqi58h" path="res://resources/blocks/yellow/damaged/destroy_animation.png" id="7_mxqgb"]
+[ext_resource type="AudioStream" uid="uid://d0y86nhj5u8p4" path="res://resources/crack.mp3" id="8_xikby"]
+[ext_resource type="AudioStream" uid="uid://cbkc3rd5q6eho" path="res://resources/block_destroyed.mp3" id="9_sjlgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cc40l"]
 size = Vector2(52, 22)

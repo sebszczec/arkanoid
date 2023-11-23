@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://be0h0i2iv4u7l"]
+
+[ext_resource type="Texture2D" uid="uid://dvu0qiw21ydgd" path="res://resources/laser_perk.png" id="1_iaqkg"]
+[ext_resource type="Script" path="res://laser_perk.gd" id="1_mjkp0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4qyo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1mjjl"]
+radius = 16.0
+
+[node name="LaserPerk" type="CharacterBody2D"]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_mjkp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iaqkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s4qyo")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_1mjjl")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

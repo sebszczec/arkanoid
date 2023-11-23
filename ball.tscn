@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dg5fmiqaxc46h"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_eul2n"]
-[ext_resource type="Texture2D" uid="uid://cqpsrwbu1b3we" path="res://resources/ball.png" id="2_pnk6g"]
-[ext_resource type="AudioStream" uid="uid://bhv8w6h72wrpx" path="res://resources/ball_bounce.mp3" id="3_fh6t8"]
+[ext_resource type="Texture2D" uid="uid://dua5kjkhhj7wg" path="res://resources/ball.png" id="2_pnk6g"]
+[ext_resource type="AudioStream" uid="uid://b5se3hx6n51hm" path="res://resources/ball_bounce.mp3" id="3_fh6t8"]
 
 [sub_resource type="Gradient" id="Gradient_opoei"]
 colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1)

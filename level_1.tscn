@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://giupnawqx1ye"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_7owms"]
-[ext_resource type="Texture2D" uid="uid://c7yk25u8c6yft" path="res://resources/cyber_punk_city.png" id="1_l1ilp"]
+[ext_resource type="Texture2D" uid="uid://b52gerws5ha66" path="res://resources/cyber_punk_city.png" id="1_l1ilp"]
 [ext_resource type="PackedScene" uid="uid://d0f2ex7d5f26v" path="res://player.tscn" id="2_i7gfm"]
 [ext_resource type="PackedScene" uid="uid://dg5fmiqaxc46h" path="res://ball.tscn" id="3_upv0c"]
 [ext_resource type="PackedScene" uid="uid://bl1ybahhp513f" path="res://block.tscn" id="4_s7kao"]
-[ext_resource type="AudioStream" uid="uid://bfek2glwwuncb" path="res://resources/level_1_music.mp3" id="6_yltx1"]
+[ext_resource type="AudioStream" uid="uid://wgwdi2b0y6ye" path="res://resources/level_1_music.mp3" id="6_yltx1"]
 [ext_resource type="Script" path="res://input_handler.gd" id="7_3mnfj"]
 [ext_resource type="Script" path="res://logic_handler.gd" id="8_cles1"]
 
@@ -167,5 +167,3 @@ script = ExtResource("7_3mnfj")
 
 [node name="LogicHandler" type="Node" parent="."]
 script = ExtResource("8_cles1")
-
-[connection signal="laser_emited" from="InputHandler" to="LogicHandler" method="_on_input_handler_laser_emited"]
