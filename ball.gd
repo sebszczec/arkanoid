@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-
 @onready var audioPlayer = $AudioStreamPlayer
 var direction = Vector2(0, 1)
 @export var SPEED = 200
+
+signal collided
 
 func _ready():
 	var generator = RandomNumberGenerator.new()
@@ -19,3 +20,5 @@ func _physics_process(delta):
 	if collision != null:
 		direction = direction.bounce(collision.get_normal())
 		audioPlayer.play()
+		
+		collided.emit(velocity.length())

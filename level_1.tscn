@@ -158,7 +158,7 @@ text = "Ball speed: "
 [node name="BallSpeedValue" type="RichTextLabel" parent="Labels"]
 offset_left = 93.0
 offset_top = 21.0
-offset_right = 115.0
+offset_right = 205.0
 offset_bottom = 48.0
 text = "0
 "
