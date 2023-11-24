@@ -7,6 +7,8 @@ const FRICTION = 100
 const RIGHT_VELOCITY = Vector2(1, 0) * MAX_SPEED
 const LEFT_VELOCITY = RIGHT_VELOCITY * -1
 
+@onready var gunSprite = $GunSprite
+
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -27,3 +29,8 @@ func _physics_process(delta):
 		if collision.get_collider().name == "Boundries":
 			velocity = Vector2.ZERO
 
+func show_gun():
+	gunSprite.visible = true
+	
+func hide_gun():
+	gunSprite.visible = false

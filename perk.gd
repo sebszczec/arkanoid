@@ -7,8 +7,14 @@ var direction = Vector2(0, 1)
 signal consumed
 signal destroyed
 
-func _ready():
-	pass
+var textures = []
+
+enum Type {Laser, Speed}
+var type = Type.Laser
+
+func _init():
+	textures.append(load("res://resources/laser_perk.png"))
+	textures.append(load("res://resources/speed_perk.png"))
 
 func _physics_process(delta):
 	direction = direction.normalized()
@@ -29,3 +35,10 @@ func _on_hit_box_area_entered(area):
 
 func _on_tree_exited():
 	destroyed.emit()
+	
+func get_type():
+	return type
+	
+func set_type(perkType):
+	type = perkType
+	$Sprite2D.texture = textures[type]

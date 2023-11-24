@@ -1,20 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://be0h0i2iv4u7l"]
 
-[ext_resource type="Texture2D" uid="uid://dvu0qiw21ydgd" path="res://resources/laser_perk.png" id="1_iaqkg"]
-[ext_resource type="Script" path="res://laser_perk.gd" id="1_mjkp0"]
+[ext_resource type="Script" path="res://perk.gd" id="1_c0dc4"]
+[ext_resource type="Texture2D" uid="uid://dvu0qiw21ydgd" path="res://resources/laser_perk.png" id="2_uejad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s4qyo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mjjl"]
 radius = 16.0
 
-[node name="LaserPerk" type="CharacterBody2D"]
+[node name="Perk" type="CharacterBody2D"]
 collision_layer = 128
 collision_mask = 0
-script = ExtResource("1_mjkp0")
+script = ExtResource("1_c0dc4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_iaqkg")
+texture = ExtResource("2_uejad")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s4qyo")

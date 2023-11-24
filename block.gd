@@ -40,9 +40,14 @@ func _on_hurt_box_area_entered(area):
 		animatedSprite2D.visible = true
 		#destroySoundPlayer.play()
 		animatedSprite2D.play("Destroy_" + COLOR)
+		
+		if !CAN_PRODUCE_PERK:
+			return
+		
 		var randomPerkChance = random.randf_range(0, 1)
 		if randomPerkChance <= PERK_CHANCE:
 			create_perk.emit(get_global_position().x, get_global_position().y)
+			
 		return
 	
 	# safety guard: laser and ball can hit the same block at the same time
