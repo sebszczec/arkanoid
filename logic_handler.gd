@@ -2,6 +2,7 @@ extends Node
 
 var laser_bullet = preload("res://laser.tscn")
 var perkScene = preload("res://perk.tscn")
+var ballScene = preload("res://ball.tscn")
 var numberOfLaserBeamsValue = null
 var ballSpeedValue = null
 var numberOfLaserBeams = 0
@@ -21,11 +22,19 @@ var can_shoot = true
 signal laser_emited
 
 # Speed perk
+var isSpeedPerkActive = false
 const BALL_SPEED_NORMAL = 200
 const BALL_SPEED_FAST = 400
 
 var speedPerkTimer = Timer.new()
 @export var SPEED_PERK_TIME = 4
+
+# Balls perk
+var isBallsPerkActive = false
+var ballsPerkTimer = Timer.new()
+@export var BALLS_PERK_TIME = 5
+var numberOfExtraBalls = 2
+var extraBalls = []
 
 func _on_shoot_timer_completed():
 	can_shoot = true
@@ -44,10 +53,12 @@ func _ready():
 	shoot_timer.connect("timeout", self._on_shoot_timer_completed)
 	speedPerkTimer.connect("timeout", self._on_speed_perk_timer_completed)
 	laserPerkTimer.connect("timeout", self._on_laser_perk_timer_completed)
+	ballsPerkTimer.connect("timeout", self._on_balls_perk_timer_completed)
 	
 	add_child(shoot_timer)
 	add_child(laserPerkTimer)
 	add_child(speedPerkTimer)
+	add_child(ballsPerkTimer)
 
 func shoot_laser():
 	if isLaserPerkActive:
@@ -84,11 +95,30 @@ func _on_block_create_perk(x, y):
 	
 	if perk.type == perk.Type.Laser:
 		perk.connect("consumed", _on_laser_perk_consumed)
-	else:
+	elif perk.type == perk.Type.Speed:
 		perk.connect("consumed", _on_speed_perk_consumed)
+	else:
+		perk.connect("consumed", _on_balls_perk_consumed)
 		
 	call_deferred("add_child", perk)
 	
+func _on_balls_perk_consumed():
+	if isBallsPerkActive:
+		return
+	
+	for i in numberOfExtraBalls:
+		var newBall = ballScene.instantiate()
+		newBall.position = ball.position
+		newBall.turn_red()
+		extraBalls.append(newBall)
+		call_deferred("add_child", newBall)
+		
+	ballsPerkTimer.one_shot = true
+	ballsPerkTimer.wait_time = BALLS_PERK_TIME
+	ballsPerkTimer.start()
+	
+	isBallsPerkActive = true
+
 	
 func _on_speed_perk_consumed():
 	ball.SPEED = BALL_SPEED_FAST
@@ -96,9 +126,12 @@ func _on_speed_perk_consumed():
 	speedPerkTimer.wait_time = SPEED_PERK_TIME
 	speedPerkTimer.start()
 	
+	isSpeedPerkActive = true
+	
 	
 func _on_speed_perk_timer_completed():
 	ball.SPEED = BALL_SPEED_NORMAL
+	isSpeedPerkActive = false
 
 	
 func _on_laser_perk_consumed():
@@ -117,9 +150,13 @@ func _on_laser_perk_timer_completed():
 
 func get_radnom_perk_type():
 	var generator = RandomNumberGenerator.new()
-	var chance = generator.randf_range(0, 1)
-	if chance < 0.5:
-		return 0 # Laser
-		
-	return 1 # Speed
+	var chance = generator.randi_range(0, 2)
+	return chance
 	
+	
+func _on_balls_perk_timer_completed():
+	for newBall in extraBalls:
+		newBall.queue_free()
+	extraBalls.clear()
+	
+	isBallsPerkActive = false

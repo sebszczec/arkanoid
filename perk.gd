@@ -9,12 +9,13 @@ signal destroyed
 
 var textures = []
 
-enum Type {Laser, Speed}
+enum Type {Laser, Speed, Balls}
 var type = Type.Laser
 
 func _init():
 	textures.append(load("res://resources/laser_perk.png"))
 	textures.append(load("res://resources/speed_perk.png"))
+	textures.append(load("res://resources/balls_perk.png"))
 
 func _physics_process(delta):
 	direction = direction.normalized()

@@ -3,13 +3,19 @@ extends CharacterBody2D
 @onready var audioPlayer = $BounceSoundPlayer
 var direction = Vector2(0, 1)
 @export var SPEED = 200
+var redTexture = null
 
 signal collided
 
-func _ready():
+func _init():
+	redTexture = load("res://resources/ball_red.png")
+	
 	var generator = RandomNumberGenerator.new()
 	var random_x_direction = generator.randf_range(-1, 1)
 	direction.x = random_x_direction
+
+func _ready():
+	pass
 
 func _physics_process(delta):
 	direction = direction.normalized()
@@ -22,3 +28,8 @@ func _physics_process(delta):
 		audioPlayer.play()
 		
 		collided.emit(velocity.length())
+
+
+func turn_red():
+	$Sprite2D.texture = redTexture
+	
