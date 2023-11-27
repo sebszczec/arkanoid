@@ -27,14 +27,20 @@ const BALL_SPEED_NORMAL = 200
 const BALL_SPEED_FAST = 400
 
 var speedPerkTimer = Timer.new()
-@export var SPEED_PERK_TIME = 4
+@export var SPEED_PERK_TIME = 5
 
 # Balls perk
 var isBallsPerkActive = false
 var ballsPerkTimer = Timer.new()
-@export var BALLS_PERK_TIME = 5
+@export var BALLS_PERK_TIME = 10
 var numberOfExtraBalls = 2
 var extraBalls = []
+
+# Size perk
+var isSizePerkActive = false
+var sizePerkTimer = Timer.new()
+@export var SIZE_PERK_TIME = 5
+
 
 func _on_shoot_timer_completed():
 	can_shoot = true
@@ -54,11 +60,13 @@ func _ready():
 	speedPerkTimer.connect("timeout", self._on_speed_perk_timer_completed)
 	laserPerkTimer.connect("timeout", self._on_laser_perk_timer_completed)
 	ballsPerkTimer.connect("timeout", self._on_balls_perk_timer_completed)
+	sizePerkTimer.connect("timeout", self.on_size_perk_timer_completed)
 	
 	add_child(shoot_timer)
 	add_child(laserPerkTimer)
 	add_child(speedPerkTimer)
 	add_child(ballsPerkTimer)
+	add_child(sizePerkTimer)
 
 func shoot_laser():
 	if isLaserPerkActive:
@@ -97,8 +105,10 @@ func _on_block_create_perk(x, y):
 		perk.connect("consumed", _on_laser_perk_consumed)
 	elif perk.type == perk.Type.Speed:
 		perk.connect("consumed", _on_speed_perk_consumed)
-	else:
+	elif perk.type == perk.Type.Balls:
 		perk.connect("consumed", _on_balls_perk_consumed)
+	else:
+		perk.connect("consumed", _on_size_perk_consumed)
 		
 	call_deferred("add_child", perk)
 	
@@ -150,7 +160,7 @@ func _on_laser_perk_timer_completed():
 
 func get_radnom_perk_type():
 	var generator = RandomNumberGenerator.new()
-	var chance = generator.randi_range(0, 2)
+	var chance = generator.randi_range(0, 3)
 	return chance
 	
 	
@@ -160,3 +170,18 @@ func _on_balls_perk_timer_completed():
 	extraBalls.clear()
 	
 	isBallsPerkActive = false
+
+
+func _on_size_perk_consumed():
+	isSizePerkActive = true
+	
+	sizePerkTimer.one_shot = true
+	sizePerkTimer.wait_time = SIZE_PERK_TIME
+	sizePerkTimer.start()
+	
+	player.make_big()
+
+
+func on_size_perk_timer_completed():
+	isSizePerkActive = false
+	player.make_small()
