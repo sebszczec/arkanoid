@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc0sxj3r4180u"]
+
+[ext_resource type="Script" path="res://bouncer.gd" id="1_f00a2"]
+[ext_resource type="Texture2D" uid="uid://bgvfnowcenny7" path="res://resources/bouncer.png" id="1_gk6h3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3npcs"]
+size = Vector2(96, 28)
+
+[node name="Bouncer" type="CharacterBody2D"]
+script = ExtResource("1_f00a2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gk6h3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3npcs")

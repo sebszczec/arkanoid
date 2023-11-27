@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://giupnawqx1ye"]
+[gd_scene load_steps=10 format=3 uid="uid://giupnawqx1ye"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_7owms"]
 [ext_resource type="Texture2D" uid="uid://b52gerws5ha66" path="res://resources/cyber_punk_city.png" id="1_l1ilp"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://wgwdi2b0y6ye" path="res://resources/level_1_music.mp3" id="6_yltx1"]
 [ext_resource type="Script" path="res://input_handler.gd" id="7_3mnfj"]
 [ext_resource type="Script" path="res://logic_handler.gd" id="8_cles1"]
+[ext_resource type="PackedScene" uid="uid://dc0sxj3r4180u" path="res://bouncer.tscn" id="9_a0fpk"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_7owms")
@@ -220,3 +221,6 @@ script = ExtResource("7_3mnfj")
 
 [node name="LogicHandler" type="Node" parent="."]
 script = ExtResource("8_cles1")
+
+[node name="Bouncer" parent="." instance=ExtResource("9_a0fpk")]
+position = Vector2(400, 100)
