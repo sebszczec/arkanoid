@@ -24,9 +24,11 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity)
 	
 	if collision != null:
+		var temp = collision.get_collider_velocity()
+		direction = direction + temp.normalized()
 		direction = direction.bounce(collision.get_normal())
-		audioPlayer.play()
 		
+		audioPlayer.play()
 		collided.emit(velocity.length())
 
 
